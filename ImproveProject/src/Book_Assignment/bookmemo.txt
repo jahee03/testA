@@ -1,0 +1,62 @@
+//파일열기 실패 -- 이름이 틀림?
+Scanner filein = null;
+try{
+	filein = new Scanner(new File(filename));
+} catch (Exeption e) {
+	System.out.printf("파일오픈실패:%s\n", filename);
+		System.exit(0);
+}
+
+//파일오픈
+Scanner openFile (String filename){
+	Scanner filein = null;
+	try{
+		filein = new Scanner(new File(filename));
+	} catch (Exeption e) {
+		System.out.printf("파일오픈실패:%s\n", filename);
+			System.exit(0);
+	}
+	return filein;
+}
+
+//readAll메소드
+파일이름을 매개변수로 받아
+오픈파일을 스캐너로 연후 스캐너 입력부는 동일하게 사용가능
+입력종료후 스캐서 close()필수
+void run() {
+	readAll("book3.txt");
+	printAll();
+	search();
+}
+void readAll(String filename) {
+	Scanner openFile (String filename){
+		Scanner filein = null;
+		try{
+			filein = new Scanner(new File(filename));
+		} catch (Exeption e) {
+			System.out.printf("파일오픈실패:%s\n", filename);
+				System.exit(0);
+		}
+		return filein;
+		filein.close();
+	}
+}
+
+//파일 입력부
+파일의 끝까지 읽는다 
+while(filein.hasnext()) {
+파일의 끝을 만나면 반환
+키보드 입력과 차이점
+입력의 끝이 어딘지 안다
+입력이 끝나면 close()
+Student의 read
+스캐너가 키보드인지 파일인지 구분하지 않음
+Scanner filein = openFile (String filename);
+Student st = null;
+while (filein.hasNext()){
+	st = new Student();
+	st.read(filein);
+	studentList.add(st);
+}
+filein.close();
+
